@@ -364,8 +364,7 @@ WELCOME_MSG = "\n".join(
     (
         f"Welcome to {BASE_DOMAIN}.",
         "To see a list of commands, use !help.",
-        "We have a public (Discord)[https://discord.gg/ShEQgUx]!",
-        "Enjoy the server!",
+        "Feel free to contact Kurtisdede#4927 for whatever reason",
     ),
 )
 
@@ -376,7 +375,7 @@ RESTRICTED_MSG = (
 )
 
 WELCOME_NOTIFICATION = app.packets.notification(
-    f"Welcome back to {BASE_DOMAIN}!\nRunning bancho.py v{app.settings.VERSION}.",
+    f"Welcome back to {BASE_DOMAIN}!\nGeldiginiz icin tesekkurler <3 v{app.settings.VERSION}.",
 )
 
 OFFLINE_NOTIFICATION = app.packets.notification(
@@ -706,12 +705,12 @@ async def login(
     db_country = user_info.pop("country")
 
     if not ip.is_private:
-        if app.state.services.geoloc_db is not None:
+        #if app.state.services.geoloc_db is not None:
             # good, dev has downloaded a geoloc db from maxmind,
             # so we can do a local db lookup. (typically ~1-5ms)
             # https://www.maxmind.com/en/home
-            user_info["geoloc"] = app.state.services.fetch_geoloc_db(ip)
-        else:
+            #user_info["geoloc"] = app.state.services.fetch_geoloc_db(ip)
+        #else:
             # bad, we must do an external db lookup using
             # a public api. (depends, `ping ip-api.com`)
             user_info["geoloc"] = await app.state.services.fetch_geoloc_web(ip)
