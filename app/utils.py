@@ -464,7 +464,7 @@ def ensure_dependencies_and_requirements() -> int:
                 "moved to oppai_ng (note the underscore). Your old oppai-ng "
                 "folder still exists, and if you have made diverging changes "
                 "to your PP system, you'll need to update the new oppai_ng "
-                "submodule to apply those changes...",
+                "submodule to apply those changes......testingagain",
                 Ansi.LMAGENTA,
             )
 
