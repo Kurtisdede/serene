@@ -715,18 +715,18 @@ async def login(
             # a public api. (depends, `ping ip-api.com`)
             user_info["geoloc"] = await app.state.services.fetch_geoloc_web(ip)
 
-        if db_country == "xx":
+        #if db_country == "xx":
             # bugfix for old bancho.py versions when
             # country wasn't stored on registration.
-            log(f"Fixing {login_data['username']}'s country.", Ansi.LGREEN)
+            # log(f"Fixing {login_data['username']}'s country.", Ansi.LGREEN)
 
-            await db_conn.execute(
-                "UPDATE users SET country = :country WHERE id = :user_id",
-                {
-                    "country": user_info["geoloc"]["country"]["acronym"],
-                    "user_id": user_info["id"],
-                },
-            )
+            #await db_conn.execute(
+            #    "UPDATE users SET country = :country WHERE id = :user_id",
+            #    {
+            #        "country": user_info["geoloc"]["country"]["acronym"],
+            #        "user_id": user_info["id"],
+            #    },
+            #)
 
     client_details = ClientDetails(
         osu_version=osu_version,
